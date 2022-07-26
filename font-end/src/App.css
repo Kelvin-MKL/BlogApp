@@ -1,0 +1,49 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+.collapse {
+    border: 2px solid;
+}
+
+.nav-item{
+    border: 2px solid white;
+    border-radius: 10px;
+    
+}
+
+.nav-item:hover{
+    background-color:#7c7a7a;
+}
+
+.article-wrapper{
+    border: 1px solid;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    border-color: silver;
+}
+
+.btn{
+    margin-right: 10px;
+}
+
+.newArticle{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+textarea{
+    width:100%;
+    max-width: 95%;
+    border-color: silver
+}
+
+.title{
+    width:100%;
+    max-width: 95%;
+    border-color: silver
+}
