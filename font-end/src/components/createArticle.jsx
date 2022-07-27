@@ -1,25 +1,31 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
+import axios from "axios";
 
 function CreateArticle() {
-  const [newArticle, setNewArticle] = useState({
-    title: "123",
-    description: "456",
-    markdown: "",
-  });
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+  const markdownRef = useRef();
 
-  const handleChangeTitle = (e) => {
-    const { value } = e.target;
-    setNewArticle({ title: value });
-    console.log(newArticle);
-  };
-
-  const handleChangeDescription = (e) => {
-    const { value } = e.target;
-    setNewArticle({ description: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const article = {
+      title: titleRef.current.value,
+      description: descriptionRef.current.value,
+      markdown: markdownRef.current.value,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/articles/create",
+        article
+      );
+      if (response.data.Error == null) window.location = "/";
+      console.log(response);
+    } catch (err) {
+      throw new Error(`Error: ${err}`);
+    }
+
     console.log("A new artricle is created!");
   };
 
@@ -32,7 +38,7 @@ function CreateArticle() {
         <input
           required
           type='text'
-          onChange={handleChangeTitle}
+          ref={titleRef}
           id='title'
           className='title'
         ></input>
@@ -40,15 +46,15 @@ function CreateArticle() {
         <label htmlFor='description'>Description</label>
         <br></br>
         <textarea
+          ref={descriptionRef}
           required
           type='text'
-          onChange={handleChangeDescription}
           id='description'
         ></textarea>
         <br />
         <label htmlFor='markdown'>Markdown</label>
         <br />
-        <textarea required type='text' id='markdown' />
+        <textarea ref={markdownRef} required type='text' id='markdown' />
         <br />
         <br />
         <button type='submit' className='btn btn-success'>

@@ -15,7 +15,7 @@ const articleSchema = new Schema(
       type: String,
       required: true,
     },
-    markup: {
+    markdown: {
       type: String,
       required: true,
     },

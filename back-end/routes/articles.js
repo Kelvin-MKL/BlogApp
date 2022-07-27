@@ -12,17 +12,17 @@ router.route("/").get((req, res) => {
 router.route("/create").post((req, res) => {
   const title = req.body.title;
   const description = req.body.description;
-  const markup = req.body.markup;
+  const markdown = req.body.markdown;
 
   const newArticle = new Article({
     title,
     description,
-    markup,
+    markdown,
   });
 
   newArticle
     .save()
-    .then(() => res.json("Article created!"))
+    .then(() => res.json("Article created in the DB!"))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
@@ -46,7 +46,7 @@ router.route("/update/:id").post((req, res) => {
     .then((article) => {
       article.title = req.body.title;
       article.description = req.body.description;
-      article.markup = req.body.markup;
+      article.markdown = req.body.markdown;
 
       article
         .save()
