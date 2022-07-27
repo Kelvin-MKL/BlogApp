@@ -4,6 +4,7 @@ let Article = require("../models/articlesModel");
 // Prefix: /articles
 router.route("/").get((req, res) => {
   Article.find()
+    .sort({ createdAt: "desc" })
     .then((articles) => res.json(articles))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
