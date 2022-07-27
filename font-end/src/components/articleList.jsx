@@ -4,6 +4,7 @@ import axios from "axios";
 function ArticleList() {
   const [articleList, setArticleList] = useState([
     {
+      _id: "daf1",
       title: "art",
       description: "des",
       markup: "markup",
@@ -30,6 +31,9 @@ function ArticleList() {
     }
   };
 
+  const handleEdit = (article) => {
+    console.log(articleList);
+  };
   return (
     <>
       <p>This is article list!</p>
@@ -39,7 +43,12 @@ function ArticleList() {
           <p>{article.description}</p>
           <p>{article.markup}</p>
           <button className='btn btn-info'>Read More</button>
-          <button className='btn btn-primary'>Edit</button>
+          <button
+            onClick={() => handleEdit(article)}
+            className='btn btn-primary'
+          >
+            Edit
+          </button>
           <button
             onClick={() => handleDelete(article)}
             className='btn btn-danger'
