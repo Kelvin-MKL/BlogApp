@@ -7,20 +7,25 @@ html{
 }
 
 .collapse {
+    /* navbar div*/
     border: 2px solid;
+    border-radius: 5px;
 }
 
 .nav-item{
-
+    height:50px;
     border: 2px solid white;
     border-radius: 10px;
-    
+    display: flex;
 }
+
+
 
 .nav-item:hover{
     background-color:#7c7a7a;
     transition: 0.5s;
     text-shadow: 1px 1px black;
+    
 }
 
 .article-wrapper{

@@ -11,12 +11,20 @@ const userSchema = new Schema(
       trim: true,
       minlength: 5,
     },
+
+    nickname: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    password: {
+      type: String,
+      required: true,
+    },
   },
   {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at",
-    },
+    timestamps: true,
   }
 );
 

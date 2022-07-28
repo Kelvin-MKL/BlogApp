@@ -25,7 +25,10 @@ export class Navbar extends Component {
               New Article
             </NavLink>
             <NavLink className='nav-item nav-link ' to='/user'>
-              Users
+              Register
+            </NavLink>
+            <NavLink className='nav-item nav-link ' to='/user'>
+              Login
             </NavLink>
           </div>
         </div>
