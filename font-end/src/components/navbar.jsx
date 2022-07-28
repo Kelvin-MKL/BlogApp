@@ -19,10 +19,10 @@ export class Navbar extends Component {
         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
           <div className='navbar-nav'>
             <NavLink className='nav-item nav-link ' to='/'>
-              Home
+              Articles
             </NavLink>
-            <NavLink className='nav-item nav-link' to='/create'>
-              New Post
+            <NavLink className='nav-item nav-link' to='/edit/new'>
+              New Article
             </NavLink>
             <NavLink className='nav-item nav-link ' to='/user'>
               Users

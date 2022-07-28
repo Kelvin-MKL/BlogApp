@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import ArticleList from "./components/articleList";
 import EditArticle from "./components/editArticle";
-import CreateArticle from "./components/createArticle";
 import CreateUser from "./components/createUser";
 import React from "react";
 
@@ -15,8 +14,8 @@ function App() {
         <Navbar></Navbar>
         <Routes>
           <Route path='/' exact element={<ArticleList />}></Route>
-          <Route path='/edit/:id' element={<EditArticle />} />
-          <Route path='/create' element={<CreateArticle />}></Route>
+
+          <Route path='/edit/:paramId' element={<EditArticle />} />
           <Route path='/user' element={<CreateUser />}></Route>
         </Routes>
       </div>
