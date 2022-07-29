@@ -6,6 +6,7 @@ import ArticleList from "./components/articleList";
 import EditArticle from "./components/editArticle";
 import RegisterUser from "./components/registerUser";
 import Registered from "./components/successfulRegister";
+import Login from "./components/login";
 import React from "react";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path='/edit/:paramId' element={<EditArticle />} />
           <Route path='/user' element={<RegisterUser />}></Route>
           <Route path='/registered' element={<Registered />}></Route>
+          <Route path='/login' element={<Login />}></Route>
         </Routes>
       </div>
     </Router>
