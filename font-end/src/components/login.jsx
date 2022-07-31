@@ -15,7 +15,7 @@ function Login() {
 
     try {
       const response = await http.post(
-        "http://localhost:5000/users/login",
+        "http://localhost:5000/auth/login",
         existingUser
       );
 

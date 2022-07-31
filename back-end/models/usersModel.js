@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+
+const jwt = require("jsonwebtoken");
 
 const Schema = mongoose.Schema;
 
@@ -27,6 +30,19 @@ const userSchema = new Schema(
     timestamps: true,
   }
 );
+
+userSchema.methods.generateAuthToken = () => {
+  const jwtPrivateKey = process.env.jwtPrivateKey;
+  const accessToken = jwt.sign(
+    {
+      _id: this._id,
+      username: this.username,
+      nickname: this.nickname,
+    },
+    jwtPrivateKey
+  );
+  return accessToken;
+};
 
 const User = mongoose.model("User", userSchema);
 

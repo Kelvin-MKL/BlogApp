@@ -24,10 +24,14 @@ html{
 
 
 .nav-item:hover{
-    background-color:#7c7a7a;
+    background-color: grey;
     transition: 0.5s;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px 1px silver;
+
     
+}
+.nav-item.nav-link.active{
+    color: red;
 }
 
 .article-wrapper{

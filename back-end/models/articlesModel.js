@@ -7,7 +7,6 @@ const articleSchema = new Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
       minlength: 5,
     },
@@ -18,6 +17,11 @@ const articleSchema = new Schema(
     markdown: {
       type: String,
       required: true,
+    },
+    postBy: {
+      type: String,
+      required: true,
+      trim: true,
     },
   },
   {

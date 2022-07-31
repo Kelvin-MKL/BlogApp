@@ -2,6 +2,13 @@ const router = require("express").Router();
 let Article = require("../models/articlesModel");
 
 // Prefix: /articles
+// router.route("/").get((req, res) => {
+//   Article.find()
+//     .sort({ createdAt: "desc" })
+//     .then((articles) => res.json(articles))
+//     .catch((err) => res.status(400).json(`Error: ${err}`));
+// });
+
 router.route("/").get((req, res) => {
   Article.find()
     .sort({ createdAt: "desc" })
@@ -14,11 +21,13 @@ router.route("/create").post((req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const markdown = req.body.markdown;
+  const postBy = req.body.postBy;
 
   const newArticle = new Article({
     title,
     description,
     markdown,
+    postBy,
   });
 
   newArticle
