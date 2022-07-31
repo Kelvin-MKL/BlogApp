@@ -73,7 +73,7 @@ textarea{
 }
 
 .rightCorner:before{
-    content: "Hello, ";
+    content: "Hello! ";
     font-weight: lighter;
-    
+
 }

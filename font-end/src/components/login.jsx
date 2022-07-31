@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import http from "../services/httpService";
+import authService from "../services/authService";
 
 function Login() {
   const usernameRef = useRef();
@@ -14,17 +14,9 @@ function Login() {
     };
 
     try {
-      const response = await http.post(
-        "http://localhost:5000/auth/login",
-        existingUser
-      );
-
-      if (response.data.Error == null) {
-        // window.location = "/registered";
-      }
+      authService.login(existingUser);
 
       console.log("You are now logged in!");
-      console.log(response);
     } catch (err) {
       throw new Error(`Error: ${err}`);
     }

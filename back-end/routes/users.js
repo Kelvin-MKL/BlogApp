@@ -3,7 +3,7 @@ let User = require("../models/usersModel");
 const bcrypt = require("bcrypt");
 
 // Register
-router.route("/register").post((req, res) => {
+router.post("/register", (req, res) => {
   const { username, nickname, password } = req.body;
   bcrypt.hash(password, 10).then((hashed) => {
     const newUser = new User({

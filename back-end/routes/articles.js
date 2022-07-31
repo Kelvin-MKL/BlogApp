@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const auth = require("../middleware/auth");
 let Article = require("../models/articlesModel");
 
 // Prefix: /articles
@@ -9,7 +10,7 @@ let Article = require("../models/articlesModel");
 //     .catch((err) => res.status(400).json(`Error: ${err}`));
 // });
 
-router.route("/").get((req, res) => {
+router.get("/", (req, res) => {
   Article.find()
     .sort({ createdAt: "desc" })
     .then((articles) => res.json(articles))
@@ -17,17 +18,17 @@ router.route("/").get((req, res) => {
 });
 
 // Create a new article
-router.route("/create").post((req, res) => {
+router.post("/create", (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const markdown = req.body.markdown;
-  const postBy = req.body.postBy;
+  const username = "bin@bin";
 
   const newArticle = new Article({
     title,
     description,
     markdown,
-    postBy,
+    username,
   });
 
   newArticle
@@ -37,21 +38,21 @@ router.route("/create").post((req, res) => {
 });
 
 // Edit an article
-router.route("/:id").get((req, res) => {
+router.get("/:id", (req, res) => {
   Article.findById(req.params.id)
     .then((article) => res.json(article))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
 // Delete an article
-router.route("/:id").delete((req, res) => {
+router.delete("/:id", (req, res) => {
   Article.findByIdAndDelete(req.params.id)
     .then(() => res.json("Article deleted."))
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
 // Update an article
-router.route("/update/:id").post((req, res) => {
+router.post("/update/:id", (req, res) => {
   Article.findById(req.params.id)
     .then((article) => {
       article.title = req.body.title;

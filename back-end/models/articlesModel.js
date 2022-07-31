@@ -18,7 +18,7 @@ const articleSchema = new Schema(
       type: String,
       required: true,
     },
-    postBy: {
+    username: {
       type: String,
       required: true,
       trim: true,
