@@ -21,7 +21,7 @@ function PublicArticleList() {
 
   return (
     <>
-      <p>This is article list!</p>
+      <p>Public articles!</p>
       {articleList.map((article) => (
         <div key={article._id} className='article-wrapper'>
           <h4>{article.title}</h4>

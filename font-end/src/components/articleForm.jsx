@@ -1,50 +1,53 @@
 import React from "react";
 import FormButton from "./formButton";
 
-const ArticleForm = ({
-  paramId,
-  content,
-  onSubmit,
-  onChangeTitle,
-  onChangeDescription,
-  onChangeMarkdown,
-}) => {
+const ArticleForm = ({ paramId, content, onSubmit, onChange }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <p>Sharing is caring! </p>
-        <label htmlFor='title'>Title</label>
-        <br></br>
-        <input
-          required
-          type='text'
-          id='title'
-          className='title'
-          onChange={onChangeTitle}
-          value={content.title}
-        ></input>
-        <br />
-
-        <label htmlFor='description'>Description</label>
-        <br />
-        <textarea
-          required
-          type='text'
-          id='description'
-          onChange={onChangeDescription}
-          value={content.description}
-        ></textarea>
-        <br />
-        <label htmlFor='markdown'>Markdown</label>
-        <br />
-        <textarea
-          required
-          type='text'
-          id='markdown'
-          onChange={onChangeMarkdown}
-          value={content.markdown}
-        ></textarea>
-        <FormButton paramId={paramId} />
+        <div className='form-container'>
+          <h4>Sharing is caring! </h4>
+          <label htmlFor='title' className='label title'>
+            Title
+          </label>
+          <br></br>
+          <input
+            required
+            type='text'
+            id='title'
+            className='title'
+            name='title'
+            onChange={onChange}
+            value={content.title}
+          ></input>
+          <br />
+          <label htmlFor='description' className='label description'>
+            Description
+          </label>
+          <br />
+          <textarea
+            required
+            type='text'
+            id='description'
+            name='description'
+            onChange={onChange}
+            value={content.description}
+          ></textarea>
+          <br />
+          <label htmlFor='markdown' className='label markdown'>
+            Markdown
+          </label>
+          <br />
+          <textarea
+            required
+            type='text'
+            id='markdown'
+            name='markdown'
+            onChange={onChange}
+            value={content.markdown}
+          ></textarea>
+          <FormButton paramId={paramId} />
+        </div>
       </form>
     </>
   );

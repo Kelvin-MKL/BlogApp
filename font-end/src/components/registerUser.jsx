@@ -35,28 +35,24 @@ function RegisterUser() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h4>Register </h4>
-        <label htmlFor='username'>Username</label>
-        <br></br>
-        <input required type='email' id='username' ref={usernameRef}></input>
-        <br />
-        <br />
-        <label htmlFor='nickname'>Nickname</label>
-        <br></br>
-        <input required type='text' id='nickname' ref={nicknameRef}></input>
-        <br />
-        <br />
-        <label htmlFor='password'>Password</label>
-        <br></br>
-        <input required type='text' id='password' ref={passwordRef}></input>
-        <br />
-        <br />
-        <button type='submit' className='btn btn-success'>
-          Register
-        </button>
-        <a href='/' className='btn btn-secondary'>
-          Cancel
-        </a>
+        <div className='form-container'>
+          <h4>Register </h4>
+          <label htmlFor='username'>Username</label>
+
+          <input required type='email' id='username' ref={usernameRef}></input>
+
+          <label htmlFor='nickname'>Nickname</label>
+
+          <input required type='text' id='nickname' ref={nicknameRef}></input>
+
+          <label htmlFor='password'>Password</label>
+
+          <input required type='text' id='password' ref={passwordRef}></input>
+
+          <button type='submit' className='btn btn-success'>
+            REGISTER
+          </button>
+        </div>
       </form>
     </>
   );

@@ -41,7 +41,7 @@ const Navbar = () => {
                   Register
                 </NavLink>
                 <NavLink className='nav-item nav-link ' to='/login'>
-                  Login
+                  Sign In
                 </NavLink>
               </>
             ) : (
@@ -57,14 +57,14 @@ const Navbar = () => {
                   className='nav-item nav-link '
                   to='/logout'
                 >
-                  Logout
+                  <p>Sign Out</p>
                 </NavLink>
               </>
             )}
           </div>
         </div>
         <div className='rightCorner'>
-          {user.nickname ? user.nickname : "mate"}
+          {user.nickname ? user.nickname : "Friend"}
         </div>
       </nav>
     </>

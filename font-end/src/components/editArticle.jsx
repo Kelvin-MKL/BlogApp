@@ -17,21 +17,9 @@ function EditArticle() {
     setArticle(blank);
   };
 
-  const handleChangeTitle = (e) => {
+  const handleOnChange = (e) => {
     const temp = { ...article };
-    temp.title = e.target.value;
-    setArticle(temp);
-  };
-
-  const handleChangeDescription = (e) => {
-    const temp = { ...article };
-    temp.description = e.target.value;
-    setArticle(temp);
-  };
-
-  const handleChangeMarkdown = (e) => {
-    const temp = { ...article };
-    temp.markdown = e.target.value;
+    temp[e.target.name] = e.target.value;
     setArticle(temp);
   };
 
@@ -94,9 +82,7 @@ function EditArticle() {
         paramId={paramId}
         content={article}
         onSubmit={handleSubmit}
-        onChangeTitle={handleChangeTitle}
-        onChangeDescription={handleChangeDescription}
-        onChangeMarkdown={handleChangeMarkdown}
+        onChange={handleOnChange}
       ></ArticleForm>
     </>
   );

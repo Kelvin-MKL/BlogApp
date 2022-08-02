@@ -23,28 +23,34 @@ function Login() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h4>Login</h4>
+    <form onSubmit={handleSubmit}>
+      <div className='form-container'>
+        <h4>Sign In</h4>
         <label htmlFor='username'>Username</label>
-        <br></br>
-        <input required type='email' id='username' ref={usernameRef}></input>
-        <br />
-        <br />
+
+        <input
+          placeholder='Enter Username'
+          required
+          type='email'
+          id='username'
+          ref={usernameRef}
+        ></input>
 
         <label htmlFor='password'>Password</label>
-        <br></br>
-        <input required type='text' id='password' ref={passwordRef}></input>
-        <br />
-        <br />
+
+        <input
+          placeholder='Enter Password'
+          required
+          type='text'
+          id='password'
+          ref={passwordRef}
+        ></input>
+
         <button type='submit' className='btn btn-success'>
-          Login
+          SIGN IN
         </button>
-        <a href='/' className='btn btn-secondary'>
-          Cancel
-        </a>
-      </form>
-    </>
+      </div>
+    </form>
   );
 }
 export default Login;

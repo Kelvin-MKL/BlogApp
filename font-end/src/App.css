@@ -4,6 +4,13 @@
 
 html{
     min-width: 450px;
+    background-color: lightslategray;
+    
+}
+
+:root{
+    --border-color: silver;
+
 }
 
 .collapse {
@@ -12,26 +19,27 @@ html{
     border-radius: 5px;
 }
 
-
 .nav-item{
-    
     height: 50px;
     border: 2px solid white;
     border-radius: 10px;
     display: flex;
 }
 
-
+.nav-item.nav-link p{
+    font-size:x-small ;
+    position: relative;
+    top:10px;
+}
 
 .nav-item:hover{
-    background-color: grey;
+    /* background-color: grey; */
     transition: 0.5s;
     text-shadow: 1px 1px silver;
-
-    
 }
-.nav-item.nav-link.active{
-    color: red;
+
+.container{
+    background-color: rgb(26, 185, 185);
 }
 
 .article-wrapper{
@@ -41,29 +49,33 @@ html{
     padding-left: 10px;
     padding-top: 5px;
     margin-bottom: 10px;
-    border-color: silver;
+    border-color: var(--border-color);
+    background-color: blueviolet;
 }
 
 .btn{
+    margin-top: 5px;
+    box-shadow: -5px 5px 0 0 silver;
+}
+
+.btn-info, .btn-primary, .btn-danger{
+    margin-bottom: 5px;
     margin-right: 10px;
+    
+}
+
+.btn:hover{
+    position: relative;
+    box-shadow: none;
+    top: 5px;
+    left: -5px;
+    transition: 0ms;
 }
 
 .newArticle{
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-}
-
-textarea{
-    width:100%;
-    max-width: 95%;
-    border-color: silver
-}
-
-.title{
-    width:100%;
-    max-width: 95%;
-    border-color: silver
 }
 
 .rightCorner{
@@ -75,5 +87,68 @@ textarea{
 .rightCorner:before{
     content: "Hello! ";
     font-weight: lighter;
+
+}
+.form-container {
+    margin-top: 100px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    z-index: 1;
+    padding-bottom: 10px;
+    box-shadow: 0 0 5px 0 var(--border-color);
+}
+
+.form-container input, textarea{
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+.form-container h4{
+    background-color: white;
+    position: absolute;
+    top: -25px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    box-shadow:  -1px 0 5px 0 silver;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    z-index: 2;
+    
+}
+
+.label{
+    position: absolute;
+    left: 50px;
+}
+.description{
+    top:150px;
+}
+.markdown{
+    top: 300px;
+}
+#description{
+    resize: none;
+}
+
+#username, #password, #nickname{
+    border: 2px solid silver;
+    outline: none;
+}
+
+#title, #description, #markdown{
+    width:95%;
+    max-width: 95%;
+    border: 2px solid silver;
+    transition: 0.5s;
+    outline: none;
+}
+#title:focus, #description:focus, #markdown:focus{
+    border:  2px solid blue
 
 }
