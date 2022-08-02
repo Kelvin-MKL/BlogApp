@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ArticleForm from "./articleForm";
+import authService from "../services/authService";
 
 function EditArticle() {
   const { paramId } = useParams();
@@ -42,15 +43,16 @@ function EditArticle() {
       description: article.description,
       markdown: article.markdown,
     };
+
     if (paramId === "new")
       try {
         const response = await axios.post(
           "http://localhost:5000/articles/create",
-          currentArticle
+          currentArticle,
+          authService.getTokenHeader()
         );
         if (response.data.Error == null) window.location = "/";
         console.log("A new artricle is created!");
-        console.log(response);
       } catch (err) {
         throw new Error(`Error: ${err}`);
       }
@@ -58,11 +60,11 @@ function EditArticle() {
       try {
         const response = await axios.post(
           `http://localhost:5000/articles/update/${paramId}`,
-          currentArticle
+          currentArticle,
+          authService.getTokenHeader()
         );
         if (response.data.Error == null) window.location = "/";
         console.log("Artricle is updated!");
-        console.log(response);
       } catch (err) {
         throw new Error(`Error: ${err}`);
       }
@@ -70,7 +72,6 @@ function EditArticle() {
   };
 
   useEffect(() => {
-    console.log(paramId);
     if (paramId === "new") {
       resetState();
       return;
@@ -78,7 +79,8 @@ function EditArticle() {
 
     const fetchArticle = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/articles/${paramId}`
+        `http://localhost:5000/articles/${paramId}`,
+        authService.getTokenHeader()
       );
       setArticle(data);
       console.log("fetching data");

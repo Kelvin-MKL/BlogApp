@@ -1,4 +1,5 @@
 import React from "react";
+import FormButton from "./formButton";
 
 const ArticleForm = ({
   paramId,
@@ -43,12 +44,7 @@ const ArticleForm = ({
           onChange={onChangeMarkdown}
           value={content.markdown}
         ></textarea>
-        <button type='submit' className='btn btn-success'>
-          {paramId === "new" ? "Create" : "Update"}
-        </button>
-        <a href='/' className='btn btn-secondary'>
-          Cancel
-        </a>
+        <FormButton paramId={paramId} />
       </form>
     </>
   );

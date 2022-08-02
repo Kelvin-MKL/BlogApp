@@ -18,9 +18,17 @@ const logout = () => {
 const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("token"));
 };
+
+const getTokenHeader = () => {
+  const token = getCurrentUser().token;
+  const authHeader = { headers: { Authorization: `Bearer ${token}` } };
+  return authHeader;
+};
+
 const AuthService = {
   login,
   logout,
   getCurrentUser,
+  getTokenHeader,
 };
 export default AuthService;

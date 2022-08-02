@@ -23,6 +23,11 @@ const articleSchema = new Schema(
       required: true,
       trim: true,
     },
+    nickname: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   },
   {
     timestamps: true,

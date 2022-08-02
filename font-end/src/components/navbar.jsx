@@ -8,7 +8,6 @@ const Navbar = () => {
   useEffect(() => {
     const currentUser = authService.getCurrentUser();
     if (currentUser) setUser(currentUser);
-    console.log(currentUser);
     // eslint-disable-next-line
   }, []);
 
@@ -35,9 +34,7 @@ const Navbar = () => {
             <NavLink className='nav-item nav-link ' to='/'>
               Articles
             </NavLink>
-            <NavLink className='nav-item nav-link' to='/edit/new'>
-              New Article
-            </NavLink>
+
             {!user.nickname ? (
               <>
                 <NavLink className='nav-item nav-link ' to='/user'>
@@ -48,17 +45,27 @@ const Navbar = () => {
                 </NavLink>
               </>
             ) : (
-              <NavLink
-                onClick={handleLogout}
-                className='nav-item nav-link '
-                to='/logout'
-              >
-                Logout
-              </NavLink>
+              <>
+                <NavLink className='nav-item nav-link' to='/edit/new'>
+                  New Article
+                </NavLink>
+                <NavLink className='nav-item nav-link' to='/myarticle'>
+                  My Articles
+                </NavLink>
+                <NavLink
+                  onClick={handleLogout}
+                  className='nav-item nav-link '
+                  to='/logout'
+                >
+                  Logout
+                </NavLink>
+              </>
             )}
           </div>
         </div>
-        <div className='rightCorner'>{user && user.nickname}</div>
+        <div className='rightCorner'>
+          {user.nickname ? user.nickname : "mate"}
+        </div>
       </nav>
     </>
   );
