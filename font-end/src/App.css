@@ -45,12 +45,42 @@ html{
 
 }
 
+.df{
+    display: flex;
+    
+}
+
 .container{
 
     background-image: linear-gradient(white, lightslategray);
 }
 
-.article-wrapper{
+.article-wrapper-right{
+
+    position: relative;
+    right: 20px;
+    margin-bottom: 10px;
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    width: 8px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 0 grey;
+    
+}
+
+.article-wrapper-right:hover{
+    right:60px;
+    width:50px;
+    text-align: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.article-wrapper-left{
+    width: 90%;
     border-right: 2px double grey;
     border-radius: 5px;
     padding-bottom: 5px;
@@ -60,8 +90,15 @@ html{
     background-color: white;
     color: rgb(51, 50, 50);
     box-shadow:  3px 3px 0 0 grey;
+
 }
 
+.article-wrapper-left h4, .article-wrapper-left p {
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* .btn-info, .btn-primary, .btn-danger{
     margin-bottom: 5px;

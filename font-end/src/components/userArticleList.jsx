@@ -53,7 +53,7 @@ function UserArticleList() {
         <>
           <p style={{ fontWeight: "bolder" }}>This is my article list!</p>
           {userArticleList.map((article) => (
-            <div key={article._id} className='article-wrapper'>
+            <div key={article._id} className='article-wrapper-left'>
               <h4>{article.title}</h4>
               <p>{new Date(article.createdAt).toLocaleDateString()}</p>
               <p>{article.description}</p>

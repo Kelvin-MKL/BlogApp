@@ -23,15 +23,20 @@ function PublicArticleList() {
     <>
       <p style={{ fontWeight: "bolder" }}>Public articles!</p>
       {articleList.map((article) => (
-        <div key={article._id} className='article-wrapper'>
-          <h4>{article.title}</h4>
-          <p>{new Date(article.createdAt).toLocaleDateString()}</p>
-          <p>{article.description}</p>
-          <p>{article.markdown}</p>
-          <p style={{ fontWeight: "lighter", fontSize: "smaller" }}>
-            {`Author: ${article.nickname}`}
-          </p>
-          <button className='btn-custom'>Read More</button>
+        <div key={article._id} className='df'>
+          <div className='article-wrapper-left'>
+            <h4>{article.title}</h4>
+            <p>{new Date(article.createdAt).toLocaleDateString()}</p>
+            <p>{article.description}</p>
+            <p>{article.markdown}</p>
+            <p style={{ fontWeight: "lighter", fontSize: "smaller" }}>
+              {`Author: ${article.nickname}`}
+            </p>
+            <button className='btn-custom'>Read More</button>
+          </div>
+          <div type='button' className='article-wrapper-right'>
+            Read More
+          </div>
         </div>
       ))}
     </>
