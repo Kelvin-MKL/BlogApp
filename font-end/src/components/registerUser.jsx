@@ -37,19 +37,43 @@ function RegisterUser() {
       <form onSubmit={handleSubmit}>
         <div className='form-container'>
           <h4>Register </h4>
-          <label htmlFor='username'>Username</label>
+          <label htmlFor='username' className='username'>
+            Username
+          </label>
 
-          <input required type='email' id='username' ref={usernameRef}></input>
+          <input
+            placeholder='Enter email'
+            required
+            type='email'
+            id='username'
+            ref={usernameRef}
+          ></input>
 
-          <label htmlFor='nickname'>Nickname</label>
+          <label htmlFor='nickname' className='nickname'>
+            Nickname
+          </label>
 
-          <input required type='text' id='nickname' ref={nicknameRef}></input>
+          <input
+            placeholder='Enter nickname'
+            required
+            type='text'
+            id='nickname'
+            ref={nicknameRef}
+          ></input>
 
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password' className='password'>
+            Password
+          </label>
 
-          <input required type='text' id='password' ref={passwordRef}></input>
+          <input
+            placeholder='Enter password'
+            required
+            type='text'
+            id='password'
+            ref={passwordRef}
+          ></input>
 
-          <button type='submit' className='btn btn-success'>
+          <button type='submit' className='btn-custom'>
             REGISTER
           </button>
         </div>

@@ -26,7 +26,9 @@ function Login() {
     <form onSubmit={handleSubmit}>
       <div className='form-container'>
         <h4>Sign In</h4>
-        <label htmlFor='username'>Username</label>
+        <label htmlFor='username' className='username'>
+          Username
+        </label>
 
         <input
           placeholder='Enter Username'
@@ -36,7 +38,9 @@ function Login() {
           ref={usernameRef}
         ></input>
 
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password' className='password'>
+          Password
+        </label>
 
         <input
           placeholder='Enter Password'
@@ -46,7 +50,7 @@ function Login() {
           ref={passwordRef}
         ></input>
 
-        <button type='submit' className='btn btn-success'>
+        <button type='submit' className='btn-custom'>
           SIGN IN
         </button>
       </div>

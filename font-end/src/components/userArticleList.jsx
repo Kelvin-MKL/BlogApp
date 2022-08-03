@@ -51,24 +51,25 @@ function UserArticleList() {
         "The page is loading"
       ) : (
         <>
-          <p>This is my article list!</p>
+          <p style={{ fontWeight: "bolder" }}>This is my article list!</p>
           {userArticleList.map((article) => (
             <div key={article._id} className='article-wrapper'>
               <h4>{article.title}</h4>
               <p>{new Date(article.createdAt).toLocaleDateString()}</p>
               <p>{article.description}</p>
               <p>{article.markdown}</p>
-              <button className='btn btn-info'>Expand</button>
+              <button className='btn-custom'>Expand</button>
               <a
+                type='button'
                 href={`/edit/${article._id}`}
                 onClick={() => handleEdit(article)}
-                className='btn btn-primary'
+                className='btn-custom'
               >
                 Edit
               </a>
               <button
                 onClick={() => handleDelete(article)}
-                className='btn btn-danger'
+                className='btn-custom'
               >
                 Delete
               </button>

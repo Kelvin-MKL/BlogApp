@@ -31,25 +31,80 @@ const Navbar = () => {
         </button>
         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
           <div className='navbar-nav'>
-            <NavLink className='nav-item nav-link ' to='/'>
+            <NavLink
+              className='nav-item nav-link '
+              to='/'
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      textShadow: "1px 1px",
+                      boxShadow: "inset 5px 5px 5px black",
+                    }
+                  : {}
+              }
+            >
               Articles
             </NavLink>
 
             {!user.nickname ? (
               <>
-                <NavLink className='nav-item nav-link ' to='/user'>
+                <NavLink
+                  className='nav-item nav-link '
+                  to='/user'
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textShadow: "1px 1px",
+                          boxShadow: "inset 5px 5px 5px black",
+                        }
+                      : {}
+                  }
+                >
                   Register
                 </NavLink>
-                <NavLink className='nav-item nav-link ' to='/login'>
+                <NavLink
+                  className='nav-item nav-link '
+                  to='/login'
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textShadow: "1px 1px",
+                          boxShadow: "inset 5px 5px 5px black",
+                        }
+                      : {}
+                  }
+                >
                   Sign In
                 </NavLink>
               </>
             ) : (
               <>
-                <NavLink className='nav-item nav-link' to='/edit/new'>
+                <NavLink
+                  className='nav-item nav-link'
+                  to='/edit/new'
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textShadow: "1px 1px",
+                          boxShadow: "inset 5px 5px 5px black",
+                        }
+                      : {}
+                  }
+                >
                   New Article
                 </NavLink>
-                <NavLink className='nav-item nav-link' to='/myarticle'>
+                <NavLink
+                  className='nav-item nav-link'
+                  to='/myarticle'
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          textShadow: "1px 1px",
+                          boxShadow: "inset 5px 5px 5px black",
+                        }
+                      : {}
+                  }
+                >
                   My Articles
                 </NavLink>
                 <NavLink

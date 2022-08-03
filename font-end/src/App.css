@@ -6,6 +6,7 @@ html{
     min-width: 450px;
     background-color: lightslategray;
     
+    
 }
 
 :root{
@@ -17,59 +18,77 @@ html{
     /* navbar div*/
     border: 2px solid;
     border-radius: 5px;
+    box-shadow: 2px 2px 0 0 black;
 }
 
 .nav-item{
+    
     height: 50px;
     border: 2px solid white;
     border-radius: 10px;
     display: flex;
+    
 }
 
 .nav-item.nav-link p{
     font-size:x-small ;
     position: relative;
     top:10px;
+    
 }
 
 .nav-item:hover{
     /* background-color: grey; */
+    box-shadow: inset 5px 5px 5px 0 black;
     transition: 0.5s;
     text-shadow: 1px 1px silver;
+
 }
 
 .container{
-    background-color: rgb(26, 185, 185);
+
+    background-image: linear-gradient(white, lightslategray);
 }
 
 .article-wrapper{
-    border: 1px solid;
+    border-right: 2px double grey;
     border-radius: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
     padding-top: 5px;
     margin-bottom: 10px;
-    border-color: var(--border-color);
-    background-color: blueviolet;
+    background-color: white;
+    color: rgb(51, 50, 50);
+    box-shadow:  3px 3px 0 0 grey;
 }
 
-.btn{
-    margin-top: 5px;
-    box-shadow: -5px 5px 0 0 silver;
-}
 
-.btn-info, .btn-primary, .btn-danger{
+/* .btn-info, .btn-primary, .btn-danger{
     margin-bottom: 5px;
     margin-right: 10px;
     
+    
+} */
+
+.btn-custom{
+    position: relative;
+    margin-right: 10px ;
+    margin-bottom: 5px;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+    background-color: grey;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 lightgrey, 2px 6px 5px 1px rgb(190, 190, 190) ;
 }
 
-.btn:hover{
-    position: relative;
+.btn-custom:hover{
+    color: black;
     box-shadow: none;
-    top: 5px;
-    left: -5px;
-    transition: 0ms;
+    top: 4px;
 }
 
 .newArticle{
@@ -90,6 +109,7 @@ html{
 
 }
 .form-container {
+    height: 500px;
     margin-top: 100px;
     padding-top: 30px;
     display: flex;
@@ -122,9 +142,16 @@ html{
     
 }
 
+.username,.nickname,.password{
+    text-shadow: 2px 1px white;
+}
+
 .label{
+
     position: absolute;
     left: 50px;
+    text-shadow: 2px 1px white;
+    
 }
 .description{
     top:150px;
@@ -132,23 +159,46 @@ html{
 .markdown{
     top: 300px;
 }
-#description{
+#description, #markdown{
     resize: none;
+    margin-bottom: 10px;
 }
 
 #username, #password, #nickname{
+    
     border: 2px solid silver;
     outline: none;
 }
 
 #title, #description, #markdown{
+    position: relative;
     width:95%;
     max-width: 95%;
     border: 2px solid silver;
     transition: 0.5s;
     outline: none;
+    
 }
-#title:focus, #description:focus, #markdown:focus{
-    border:  2px solid blue
 
+
+
+#title:focus, #description:focus, #markdown:focus{
+    border:  2px solid blue;
+    animation: changeBorder  3s ease-in-out infinite;
+    
+
+}
+@keyframes changeBorder {
+    0% { 
+        border: 2px solid rgb(0, 0, 0)
+    }
+
+    50%
+    {
+        border: 2px solid rgb(255, 253, 253)
+    }
+    100%
+    { 
+        border: 2px solid rgb(2, 2, 2)
+    }
 }
