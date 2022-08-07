@@ -8,8 +8,19 @@ function PublicArticleList() {
       title: "art",
       description: "des",
       markup: "markup",
+      isExpanded: false,
     },
   ]);
+
+  const handleOnClick = (article) => {
+    const list = [...articleList];
+    const index = list.indexOf(article);
+    const newArt = list[index];
+    newArt.isExpanded = !newArt.isExpanded;
+    setArticleList(list);
+
+    // article.isExpanded = true;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,18 +35,25 @@ function PublicArticleList() {
       <p style={{ fontWeight: "bolder" }}>Public articles!</p>
       {articleList.map((article) => (
         <div key={article._id} className='df'>
-          <div className='article-wrapper-left'>
+          <div
+            className={
+              article.isExpanded
+                ? "article-wrapper-left expand"
+                : "article-wrapper-left normal"
+            }
+          >
             <h4>{article.title}</h4>
-            <p>{new Date(article.createdAt).toLocaleDateString()}</p>
+            <p id='date'>{new Date(article.createdAt).toLocaleDateString()}</p>
             <p>{article.description}</p>
             <p>{article.markdown}</p>
-            <p style={{ fontWeight: "lighter", fontSize: "smaller" }}>
-              {`Author: ${article.nickname}`}
-            </p>
-            <button className='btn-custom'>Read More</button>
+            <p id='author'>{article.nickname}</p>
           </div>
-          <div type='button' className='article-wrapper-right'>
-            Read More
+          <div
+            onClick={() => handleOnClick(article)}
+            type='button'
+            className='article-wrapper-right'
+          >
+            {article.isExpanded ? "Read Less" : "Read More"}
           </div>
         </div>
       ))}

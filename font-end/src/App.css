@@ -93,19 +93,18 @@ html{
 
 }
 
-.article-wrapper-left h4, .article-wrapper-left p {
+.article-wrapper-left.normal h4, .article-wrapper-left.normal p {
     width: 80%;
     white-space: nowrap;
-    overflow: hidden;
+    overflow:hidden;
     text-overflow: ellipsis;
+
 }
 
-/* .btn-info, .btn-primary, .btn-danger{
-    margin-bottom: 5px;
-    margin-right: 10px;
-    
-    
-} */
+.article-wrapper-left.expand h4, .article-wrapper-left.expand p {
+    width:80%;
+    word-wrap: break-word;
+}
 
 .btn-custom{
     position: relative;
@@ -179,6 +178,29 @@ html{
     
 }
 
+#date{
+    font-style: italic;
+}
+
+#date:before{
+    content: "Published at";
+    font-size: xx-small;
+    font-style: italic;
+    margin-right: 5px;
+    color: cornflowerblue;
+}
+
+#author{
+    font-style: italic;
+}
+
+#author:before{
+    content: "Author:";
+    font-size: x-small;
+    font-style: italic;
+    margin-right: 5px;
+}
+
 .username,.nickname,.password{
     text-shadow: 2px 1px white;
 }
@@ -217,13 +239,10 @@ html{
     
 }
 
-
-
 #title:focus, #description:focus, #markdown:focus{
     border:  2px solid blue;
     animation: changeBorder  3s ease-in-out infinite;
     
-
 }
 @keyframes changeBorder {
     0% { 
