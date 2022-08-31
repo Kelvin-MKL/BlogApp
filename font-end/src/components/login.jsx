@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import authService from "../services/authService";
 
 function Login() {
+  const [error, setError] = useState("");
   const usernameRef = useRef();
   const passwordRef = useRef();
 
@@ -13,11 +14,13 @@ function Login() {
       password: passwordRef.current.value,
     };
 
+    setError("");
     try {
-      authService.login(existingUser);
-
-      console.log("You are now logged in!");
+      authService
+        .login(existingUser)
+        .catch((res) => setError(res.response.data.error));
     } catch (err) {
+      console.log("Connection issue occurs.");
       throw new Error(`Error: ${err}`);
     }
   };
@@ -45,10 +48,12 @@ function Login() {
         <input
           placeholder='Enter Password'
           required
-          type='text'
+          type='password'
           id='password'
           ref={passwordRef}
         ></input>
+
+        <div style={{ paddingBottom: "5px", color: "red" }}>{error}</div>
 
         <button type='submit' className='btn-custom'>
           SIGN IN

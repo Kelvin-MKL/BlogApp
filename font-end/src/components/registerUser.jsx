@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import http from "../services/httpService";
 
 function RegisterUser() {
+  const [passwordDisplay, setPasswordDisplay] = useState("password");
   const usernameRef = useRef();
   const nicknameRef = useRef();
   const passwordRef = useRef();
@@ -30,6 +31,12 @@ function RegisterUser() {
     } catch (err) {
       throw new Error(`Error: ${err}`);
     }
+  };
+
+  const togglePasswordDisplay = () => {
+    passwordDisplay === "text"
+      ? setPasswordDisplay("password")
+      : setPasswordDisplay("text");
   };
 
   return (
@@ -68,11 +75,22 @@ function RegisterUser() {
           <input
             placeholder='Enter password'
             required
-            type='text'
+            type={passwordDisplay}
             id='password'
             ref={passwordRef}
           ></input>
-
+          <div>
+            <label
+              style={{
+                paddingRight: "10px",
+                paddingBottom: "10px",
+                fontSize: "smaller",
+              }}
+            >
+              Show password
+            </label>
+            <input type='checkbox' onClick={togglePasswordDisplay}></input>
+          </div>
           <button type='submit' className='btn-custom'>
             REGISTER
           </button>
